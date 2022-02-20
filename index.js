@@ -2,6 +2,7 @@ const { CONFIG } = require('./config/config');
 const routes = require('./routes');
 const mongoose = require('mongoose');
 const { json } = require('body-parser');
+const cors = require('cors');
 const helmet = require('helmet');
 const connect = require('./db/connect');
 
@@ -21,6 +22,11 @@ app.use(
   })
 );
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
+app.use(
+  cors({
+    origin: CONFIG.app.CLIENT_URL,
+  })
+);
 
 app.use(errorMiddleware);
 
