@@ -11,8 +11,7 @@ const contentsSchema = new Schema({
     trim: true,
   },
   advice: {
-    type: String,
-    trim: true,
+    type: Boolean,
   },
 });
 
